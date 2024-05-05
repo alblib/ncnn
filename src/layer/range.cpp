@@ -1,7 +1,7 @@
 #include "range.h"
 #include <cmath>
 
-namespace ncnn{
+namespace ncnn {
 
 Range::Range()
 {
@@ -33,7 +33,7 @@ int Range::forward(const std::vector<Mat>& bottom_blobs, std::vector<Mat>& top_b
     const float& limit_elem = *limit_elem_ptr;
     const float& delta_elem = *delta_elem_ptr;
     const long size = std::ceil((limit_elem - start_elem) / delta_elem);
-    
+
     Mat& top_blob = top_blobs[0];
     top_blob.create(size, 4u, opt.blob_allocator);
     for (long i = 0, float elem = start_elem; i < size; ++i, elem += delta_elem)
@@ -43,5 +43,4 @@ int Range::forward(const std::vector<Mat>& bottom_blobs, std::vector<Mat>& top_b
     return 0;
 }
 
-
-}
+} // namespace ncnn
