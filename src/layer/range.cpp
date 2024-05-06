@@ -1,5 +1,4 @@
 #include "range.h"
-#include <cmath>
 
 namespace ncnn {
 
@@ -25,14 +24,14 @@ int Range::forward(const std::vector<Mat>& bottom_blobs, std::vector<Mat>& top_b
     const Mat& limit = bottom_blobs[1];
     const Mat& delta = bottom_blobs[2];
 
-    const float* start_elem_ptr = start.data;
-    const float* limit_elem_ptr = limit.data;
-    const float* delta_elem_ptr = delta.data;
+    const float* start_elem_ptr = (const float*)(start.data);
+    const float* limit_elem_ptr = (const float*)(limit.data);
+    const float* delta_elem_ptr = (const float*)(delta.data);
 
     const float& start_elem = *start_elem_ptr;
     const float& limit_elem = *limit_elem_ptr;
     const float& delta_elem = *delta_elem_ptr;
-    const long size = std::ceil((limit_elem - start_elem) / delta_elem);
+    const long size = ceilf((limit_elem - start_elem) / delta_elem);
 
     Mat& top_blob = top_blobs[0];
     top_blob.create(size, 4u, opt.blob_allocator);
