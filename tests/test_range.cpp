@@ -17,9 +17,9 @@
 int main()
 {
     ncnn::Mat start(1), end(1), step(1);
-    start[0] = 2f;
-    end[0] = 4f;
-    step[0] = 1f;
+    start[0] = 2.f;
+    end[0] = 4.f;
+    step[0] = 1.f;
 
     std::vector<ncnn::Mat> inputs = {start, end, step};
 
