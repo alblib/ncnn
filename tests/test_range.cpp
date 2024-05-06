@@ -20,7 +20,7 @@ int main()
     start[0] = 2f;
     end[0] = 4f;
     step[0] = 1f;
-    
+
     std::vector<ncnn::Mat> inputs = {start, end, step};
 
     ncnn::ParamDict pd;

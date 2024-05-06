@@ -37,11 +37,13 @@ int Range::forward(const std::vector<Mat>& bottom_blobs, std::vector<Mat>& top_b
     Mat& top_blob = top_blobs[0];
     top_blob.create(size, 4u, opt.blob_allocator);
 
-    long i = 0; float elem = start_elem;
+    long i = 0;
+    float elem = start_elem;
     while (i < size)
     {
         top_blob[i] = elem;
-        ++i; elem += delta_elem;
+        ++i;
+        elem += delta_elem;
     }
     return 0;
 }
